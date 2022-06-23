@@ -9,13 +9,7 @@ kubectl vsphere login --server=tanzu-cra.sikademo.com --vsphere-username ondrej.
 Use context
 
 ```
-kubectl config use-context tanzu-cra.sikademo.com
-```
-
-Set namespace
-
-```
-kubectl config set-context --current --namespace sikalabs
+kubectl config use-context sikalabs
 ```
 
 List all Kubernete API resources
