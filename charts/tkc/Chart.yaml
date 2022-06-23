@@ -1,0 +1,5 @@
+apiVersion: v2
+name: tkc
+description: Tanzu Kubernetes Cluster
+type: application
+version: 0.1.0-dev

@@ -1,0 +1,30 @@
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: foo
+spec:
+  distribution:
+    version: v1.21
+  settings:
+    network:
+      cni:
+        name: antrea
+      pods:
+        cidrBlocks:
+        - 10.42.0.0/16
+      serviceDomain: cluster.local
+      services:
+        cidrBlocks:
+        - 10.43.0.0/16
+    storage:
+      defaultClass: tvdc-caas-ftt1
+  topology:
+    controlPlane:
+      replicas: 1
+      storageClass: tvdc-caas-ftt1
+      vmClass: best-effort-medium
+    nodePools:
+    - name: workers
+      replicas: 3
+      storageClass: tvdc-caas-ftt1
+      vmClass: best-effort-medium

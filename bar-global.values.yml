@@ -1,0 +1,5 @@
+kubernetesVersion: v1.21
+storageDefaultClass: tvdc-caas-ftt1
+nodeStorageClass: tvdc-caas-ftt1
+controlPlaneNodeClass: best-effort-medium
+workerNodeClass: best-effort-medium

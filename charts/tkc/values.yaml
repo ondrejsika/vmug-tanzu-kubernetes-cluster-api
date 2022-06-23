@@ -1,0 +1,25 @@
+# === Package ===
+namePrefix: ""
+
+# === Required ===
+# kubernetesVersion: v1.21
+kubernetesVersion:
+
+# storageDefaultClass: tvdc-caas-ftt1
+storageDefaultClass:
+
+# nodeStorageClass: tvdc-caas-ftt1
+nodeStorageClass:
+
+# controlPlaneNodeClass: best-effort-medium
+controlPlaneNodeClass:
+
+# workerNodeClass: best-effort-medium
+workerNodeClass:
+
+
+# === Optional ===
+podsCidrBlock: 10.42.0.0/16
+servicesCidrBlock: 10.43.0.0/16
+controlPlaneNodeCount: 1
+workerNodeCount: 1

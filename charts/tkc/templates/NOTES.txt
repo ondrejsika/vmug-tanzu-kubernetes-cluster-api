@@ -1,0 +1,7 @@
+See kubeconfig:
+
+    kubectl get secret {{.Values.namePrefix}}{{.Release.Name}}-kubeconfig --output jsonpath="{.data.value}" | base64 --decode
+
+Save kubeconfig to file "kubeconfig-{{.Values.namePrefix}}{{.Release.Name}}.yml":
+
+    kubectl get secret {{.Values.namePrefix}}{{.Release.Name}}-kubeconfig --output jsonpath="{.data.value}" | base64 --decode > kubeconfig-{{.Values.namePrefix}}{{.Release.Name}}.yml

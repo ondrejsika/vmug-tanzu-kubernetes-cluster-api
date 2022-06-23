@@ -1,0 +1,29 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1
+kind: TanzuKubernetesCluster
+metadata:
+  name: {{.Values.namePrefix}}{{.Release.Name}}
+spec:
+  distribution:
+    version: {{ required ".Values.kubernetesVersion is required" .Values.kubernetesVersion }}
+  settings:
+    network:
+      cni:
+        name: antrea
+      pods:
+        cidrBlocks:
+        - {{ .Values.podsCidrBlock }}
+      serviceDomain: cluster.local
+      services:
+        cidrBlocks:
+        - {{ .Values.servicesCidrBlock }}
+    storage:
+      defaultClass: {{ required ".Values.storageDefaultClass is required" .Values.storageDefaultClass }}
+  topology:
+    controlPlane:
+      class: {{ required ".Values.controlPlaneNodeClass is required" .Values.controlPlaneNodeClass }}
+      count: {{ .Values.controlPlaneNodeCount }}
+      storageClass: {{ required ".Values.nodeStorageClass is required" .Values.nodeStorageClass }}
+    workers:
+      class: {{ required ".Values.workerNodeClass is required" .Values.workerNodeClass }}
+      count: {{ .Values.workerNodeCount }}
+      storageClass: {{ required ".Values.nodeStorageClass is required" .Values.nodeStorageClass }}
